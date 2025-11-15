@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ABISHEK ELUMALAI – AI/LLM Engineer</title>
+
+  <!-- Tailwind Play CDN (v3) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+  <!-- Inter font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{
+      --deep-blue-glow: 99,102,241;    /* Indigo-500 */
+      --bluebonnet-700: 67,56,202;
+      --bluebonnet-400: 129,140,248;
+      --bluebonnet-300: 165,180,252;
+      --slate-bg-dark: #03080e;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans"; background: var(--slate-bg-dark); }
+
+    /* Reusable hover glow */
+    .hover-glow { transition: box-shadow .3s, transform .3s, border-color .3s, background-color .3s; }
+    .hover-glow:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 15px rgba(var(--deep-blue-glow), .9), 0 0 40px rgba(var(--deep-blue-glow), .5);
+      border-color: rgb(var(--deep-blue-glow)) !important;
+    }
+
+    /* Pulse under the shield icon */
+    @keyframes pulse-slow { 0%,100%{opacity:.08} 50%{opacity:.18} }
+    .pulse-slow { animation: pulse-slow 2.5s ease-in-out infinite; }
+
+    /* Pill utility */
+    .pill{
+      display:inline-block;border-radius:9999px;border:1px solid rgb(var(--deep-blue-glow));
+      color: rgb(224,231,255); background-color: rgba(15,23,42,.8);
+      padding:.25rem .75rem; font-size:.75rem; line-height:1.5rem;
+      box-shadow:0 1px 2px rgba(0,0,0,.2); margin:.25rem .5rem .5rem 0;
+      font-family: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+    }
+  </style>
+</head>
+<body class="min-h-screen text-slate-100 relative">
+
+  <!-- MOBILE HEADER -->
+  <header class="sticky top-0 z-50 backdrop-blur-sm bg-slate-900/70 border-b border-slate-700/50 md:hidden">
+    <nav class="max-w-6xl mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 h-16">
+      <a href="#home" class="text-xl font-extrabold text-[rgb(var(--bluebonnet-300))] hover:text-indigo-100 transition">A.E.</a>
+      <button id="menuBtn" class="p-2 rounded-full border border-slate-700 text-slate-300 hover:bg-slate-800 transition" aria-label="Toggle navigation menu">
+        <i data-lucide="menu" class="h-5 w-5"></i>
+      </button>
+    </nav>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div id="menuOverlay" class="md:hidden fixed inset-0 z-40 bg-slate-900/90 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300">
+    <div id="menuPanel" class="absolute right-0 top-0 h-full w-64 bg-slate-800 border-l border-slate-700 shadow-2xl translate-x-full transition-transform duration-300">
+      <div class="p-6 pt-16 space-y-4 text-lg">
+        <a class="block text-slate-200 hover:text-[rgb(var(--bluebonnet-400))] transition py-2 border-b border-slate-700/50" href="#about">About</a>
+        <a class="block text-slate-200 hover:text-[rgb(var(--bluebonnet-400))] transition py-2 border-b border-slate-700/50" href="#skills">Skills</a>
+        <a class="block text-slate-200 hover:text-[rgb(var(--bluebonnet-400))] transition py-2 border-b border-slate-700/50" href="#experience">Experience</a>
+        <a class="block text-slate-200 hover:text-[rgb(var(--bluebonnet-400))] transition py-2 border-b border-slate-700/50" href="#projects">Projects</a>
+        <a class="block text-slate-200 hover:text-[rgb(var(--bluebonnet-400))] transition py-2 border-b border-slate-700/50" href="#education">Education</a>
+        <a class="block text-slate-200 hover:text-[rgb(var(--bluebonnet-400))] transition py-2 border-b border-slate-700/50" href="#contact">Contact</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- DESKTOP SIDE NAV -->
+  <nav class="fixed right-0 top-1/2 -translate-y-1/2 z-40 hidden md:block w-36 lg:w-44 p-4">
+    <div class="bg-slate-900/70 backdrop-blur-sm rounded-xl border border-[rgb(var(--bluebonnet-700))]/50 p-4 shadow-2xl">
+      <div class="space-y-3 text-sm font-medium text-right">
+        <a class="block text-slate-300 hover:text-[rgb(var(--bluebonnet-400))] transition" href="#about">About</a>
+        <a class="block text-slate-300 hover:text-[rgb(var(--bluebonnet-400))] transition" href="#skills">Skills</a>
+        <a class="block text-slate-300 hover:text-[rgb(var(--bluebonnet-400))] transition" href="#experience">Experience</a>
+        <a class="block text-slate-300 hover:text-[rgb(var(--bluebonnet-400))] transition" href="#projects">Projects</a>
+        <a class="block text-slate-300 hover:text-[rgb(var(--bluebonnet-400))] transition" href="#education">Education</a>
+        <a class="block text-slate-300 hover:text-[rgb(var(--bluebonnet-400))] transition" href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home" class="relative overflow-hidden pt-24 pb-32 min-h-[600px] flex items-center justify-center text-center">
+    <div class="absolute inset-0 -z-10 opacity-15" aria-hidden="true">
+      <div class="h-[500px] bg-indigo-900/60 blur-3xl w-full"></div>
+    </div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-6xl sm:text-8xl font-extrabold tracking-tighter text-white">ABISHEK ELUMALAI</h1>
+      <p class="mt-4 text-xl sm:text-3xl font-medium tracking-wide text-[rgb(var(--bluebonnet-300))]/90 italic">
+        AI/LLM Engineer | MLOps Specialist
+      </p>
+
+      <div class="mt-12 mb-8 relative inline-flex items-center justify-center p-6 rounded-full border-2 border-[rgb(var(--deep-blue-glow))]/80">
+        <i data-lucide="shield" class="h-10 w-10 text-[rgb(129,140,248)] z-10"></i>
+        <div class="absolute inset-0 rounded-full bg-[rgb(var(--deep-blue-glow))] pulse-slow"></div>
+      </div>
+
+      <p class="mt-4 max-w-2xl mx-auto text-slate-300 text-lg">
+        <span class="font-light">Ship privacy-safe, reliable generative AI — from prototype to production.</span>
+      </p>
+
+      <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
+        <a href="/Abishek_Resume.pdf" target="_blank" rel="noreferrer" download
+           class="inline-flex items-center gap-2 rounded-xl bg-indigo-700 text-white px-5 py-2 text-base font-semibold shadow-xl shadow-[rgb(var(--deep-blue-glow))]/50 hover:bg-indigo-800 transition">
+          <i data-lucide="arrow-down-to-line" class="h-5 w-5"></i> Download CV
+        </a>
+        <a href="https://linkedin.com/in/elumalaiabishek" target="_blank" rel="noreferrer"
+           class="inline-flex items-center gap-2 rounded-xl border border-slate-600 text-[rgb(var(--bluebonnet-300))] px-5 py-2 text-base hover:bg-slate-800 hover:border-[rgb(var(--bluebonnet-400))] transition">
+          <i data-lucide="linkedin" class="h-5 w-5"></i> Connect
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="scroll-mt-24 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-[rgb(var(--bluebonnet-300))] border-b border-[rgb(var(--bluebonnet-400))]/50 pb-2">About Me</h2>
+    <div class="mt-6">
+      <p class="text-slate-200 max-w-4xl leading-relaxed">
+        As an AI/ML Engineer, I specialize in taking <strong>LLM features from prototype to production</strong>.
+        I build clean data and feature pipelines with <strong>Python</strong> and <strong>SQL</strong> and operationalize
+        on <strong>AWS</strong> with automation and solid Git practices. I design prompt & model lifecycles, automate
+        evaluation/monitoring, and ship <strong>privacy-safe, scalable generative AI</strong> experiences.
+      </p>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="scroll-mt-24 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-[rgb(var(--bluebonnet-300))] border-b border-[rgb(var(--bluebonnet-400))]/50 pb-2">Skills & Technology Stack</h2>
+
+    <div class="rounded-2xl border-2 border-[rgb(var(--bluebonnet-700))]/50 bg-slate-900/70 p-6 shadow-2xl flex flex-col hover-glow mt-6">
+      <h3 class="text-xl font-semibold text-slate-50 mb-4">Core Focus Areas</h3>
+      <div class="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-4">
+        <div class="flex flex-col items-center justify-center p-4 rounded-2xl border border-[rgb(var(--bluebonnet-700))]/60 bg-slate-900/60 shadow-2xl hover:bg-slate-800/90 cursor-pointer text-center hover-glow"><i data-lucide="target" class="h-6 w-6 text-[rgb(var(--bluebonnet-400))] mb-1"></i><p class="text-sm font-semibold text-slate-50 mt-1">LLMOps / MLOps</p></div>
+        <div class="flex flex-col items-center justify-center p-4 rounded-2xl border border-[rgb(var(--bluebonnet-700))]/60 bg-slate-900/60 shadow-2xl hover:bg-slate-800/90 cursor-pointer text-center hover-glow"><i data-lucide="brain" class="h-6 w-6 text-[rgb(var(--bluebonnet-400))] mb-1"></i><p class="text-sm font-semibold text-slate-50 mt-1">Generative AI</p></div>
+        <div class="flex flex-col items-center justify-center p-4 rounded-2xl border border-[rgb(var(--bluebonnet-700))]/60 bg-slate-900/60 shadow-2xl hover:bg-slate-800/90 cursor-pointer text-center hover-glow"><i data-lucide="cloud" class="h-6 w-6 text-[rgb(var(--bluebonnet-400))] mb-1"></i><p class="text-sm font-semibold text-slate-50 mt-1">Cloud & DevOps</p></div>
+        <div class="flex flex-col items-center justify-center p-4 rounded-2xl border border-[rgb(var(--bluebonnet-700))]/60 bg-slate-900/60 shadow-2xl hover:bg-slate-800/90 cursor-pointer text-center hover-glow"><i data-lucide="search" class="h-6 w-6 text-[rgb(var(--bluebonnet-400))] mb-1"></i><p class="text-sm font-semibold text-slate-50 mt-1">RAG / Embeddings</p></div>
+        <div class="flex flex-col items-center justify-center p-4 rounded-2xl border border-[rgb(var(--bluebonnet-700))]/60 bg-slate-900/60 shadow-2xl hover:bg-slate-800/90 cursor-pointer text-center hover-glow"><i data-lucide="zap" class="h-6 w-6 text-[rgb(var(--bluebonnet-400))] mb-1"></i><p class="text-sm font-semibold text-slate-50 mt-1">Automation / API</p></div>
+        <div class="flex flex-col items-center justify-center p-4 rounded-2xl border border-[rgb(var(--bluebonnet-700))]/60 bg-slate-900/60 shadow-2xl hover:bg-slate-800/90 cursor-pointer text-center hover-glow"><i data-lucide="box" class="h-6 w-6 text-[rgb(var(--bluebonnet-400))] mb-1"></i><p class="text-sm font-semibold text-slate-50 mt-1">ML Artifact Mgmt</p></div>
+      </div>
+
+      <h3 class="text-xl font-semibold text-slate-50 mb-4 mt-8 pt-4 border-t border-slate-700/50">Specialized Domains</h3>
+      <div class="grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-8 gap-4">
+        <div class="flex flex-col items-center justify-center p-4 rounded-2xl border border-[rgb(var(--bluebonnet-700))]/60 bg-slate-900/60 shadow-2xl hover:bg-slate-800/90 cursor-pointer text-center hover-glow"><i data-lucide="shield-check" class="h-6 w-6 text-[rgb(var(--bluebonnet-400))] mb-1"></i><p class="text-sm font-semibold text-slate-50 mt-1">Cloud Security</p></div>
+        <div class="flex flex-col items-center justify-center p-4 rounded-2xl border border-[rgb(var(--bluebonnet-700))]/60 bg-slate-900/60 shadow-2xl hover:bg-slate-800/90 cursor-pointer text-center hover-glow"><i data-lucide="user-check" class="h-6 w-6 text-[rgb(var(--bluebonnet-400))] mb-1"></i><p class="text-sm font-semibold text-slate-50 mt-1">IAM</p></div>
+        <div class="flex flex-col items-center justify-center p-4 rounded-2xl border border-[rgb(var(--bluebonnet-700))]/60 bg-slate-900/60 shadow-2xl hover:bg-slate-800/90 cursor-pointer text-center hover-glow"><i data-lucide="target" class="h-6 w-6 text-[rgb(var(--bluebonnet-400))] mb-1"></i><p class="text-sm font-semibold text-slate-50 mt-1">Threat Hunting</p></div>
+        <div class="flex flex-col items-center justify-center p-4 rounded-2xl border border-[rgb(var(--bluebonnet-700))]/60 bg-slate-900/60 shadow-2xl hover:bg-slate-800/90 cursor-pointer text-center hover-glow"><i data-lucide="shield" class="h-6 w-6 text-[rgb(var(--bluebonnet-400))] mb-1"></i><p class="text-sm font-semibold text-slate-50 mt-1">Phishing Detection</p></div>
+        <div class="flex flex-col items-center justify-center p-4 rounded-2xl border border-[rgb(var(--bluebonnet-700))]/60 bg-slate-900/60 shadow-2xl hover:bg-slate-800/90 cursor-pointer text-center hover-glow"><i data-lucide="zap" class="h-6 w-6 text-[rgb(var(--bluebonnet-400))] mb-1"></i><p class="text-sm font-semibold text-slate-50 mt-1">Reinforcement Learning</p></div>
+        <div class="flex flex-col items-center justify-center p-4 rounded-2xl border border-[rgb(var(--bluebonnet-700))]/60 bg-slate-900/60 shadow-2xl hover:bg-slate-800/90 cursor-pointer text-center hover-glow"><i data-lucide="brain" class="h-6 w-6 text-[rgb(var(--bluebonnet-400))] mb-1"></i><p class="text-sm font-semibold text-slate-50 mt-1">GenAI & ML</p></div>
+        <div class="flex flex-col items-center justify-center p-4 rounded-2xl border border-[rgb(var(--bluebonnet-700))]/60 bg-slate-900/60 shadow-2xl hover:bg-slate-800/90 cursor-pointer text-center hover-glow"><i data-lucide="message-square" class="h-6 w-6 text-[rgb(var(--bluebonnet-400))] mb-1"></i><p class="text-sm font-semibold text-slate-50 mt-1">NLP / VLM</p></div>
+        <div class="flex flex-col items-center justify-center p-4 rounded-2xl border border-[rgb(var(--bluebonnet-700))]/60 bg-slate-900/60 shadow-2xl hover:bg-slate-800/90 cursor-pointer text-center hover-glow"><i data-lucide="database" class="h-6 w-6 text-[rgb(var(--bluebonnet-400))] mb-1"></i><p class="text-sm font-semibold text-slate-50 mt-1">SQL</p></div>
+      </div>
+    </div>
+
+    <h3 class="text-xl font-semibold text-slate-50 mb-4 mt-12">Technical Stack</h3>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="rounded-2xl border border-slate-700/50 bg-slate-900/60 p-5 shadow-inner hover-glow">
+        <h4 class="font-bold text-[rgb(var(--bluebonnet-400))] mb-3 flex items-center gap-2 border-b border-slate-700/50 pb-2"><i data-lucide="code" class="h-4 w-4"></i> LLM & AI Frameworks</h4>
+        <div><span class="pill">Python</span><span class="pill">Hugging Face Transformers</span><span class="pill">OpenAI API</span><span class="pill">LangChain / LlamaIndex</span><span class="pill">Pandas / NumPy</span></div>
+      </div>
+      <div class="rounded-2xl border border-slate-700/50 bg-slate-900/60 p-5 shadow-inner hover-glow">
+        <h4 class="font-bold text-[rgb(var(--bluebonnet-400))] mb-3 flex items-center gap-2 border-b border-slate-700/50 pb-2"><i data-lucide="code" class="h-4 w-4"></i> Cloud Infrastructure</h4>
+        <div><span class="pill">AWS (EC2, Lambda, S3, Auto Scaling)</span><span class="pill">Linux</span><span class="pill">Terraform</span><span class="pill">Ansible</span><span class="pill">Git/GitHub</span></div>
+      </div>
+      <div class="rounded-2xl border border-slate-700/50 bg-slate-900/60 p-5 shadow-inner hover-glow">
+        <h4 class="font-bold text-[rgb(var(--bluebonnet-400))] mb-3 flex items-center gap-2 border-b border-slate-700/50 pb-2"><i data-lucide="code" class="h-4 w-4"></i> Data & Storage</h4>
+        <div><span class="pill">SQL</span><span class="pill">MySQL</span><span class="pill">FAISS / Vector Stores</span><span class="pill">Jupyter / Colab</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="scroll-mt-24 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-[rgb(var(--bluebonnet-300))] border-b border-[rgb(var(--bluebonnet-400))]/50 pb-2">Experience</h2>
+
+    <div class="space-y-10 mt-6">
+      <div class="relative pl-8 md:pl-16 border-l-2 border-[rgb(var(--bluebonnet-700))]/50">
+        <div class="absolute left-[-11px] md:left-[-15px] top-0 h-5 w-5 rounded-full bg-[rgb(var(--deep-blue-glow))] border-4 border-[#03080e] shadow-xl"></div>
+        <div class="rounded-2xl bg-slate-900/70 p-6 shadow-xl border border-slate-700/50 hover-glow">
+          <div class="flex flex-col sm:flex-row items-start justify-between gap-4">
+            <div>
+              <h3 class="font-bold text-slate-50 text-xl">Process Associate (Quality Assurance & Automation)</h3>
+              <p class="text-[rgb(var(--bluebonnet-400))] text-lg">Prochant India Pvt. Ltd.</p>
+            </div>
+            <span class="text-sm text-slate-400">Feb 2025 – Oct 2025</span>
+          </div>
+          <ul class="mt-4 list-disc pl-5 text-slate-200 space-y-2 text-sm">
+            <li>Audited and processed patient intake & insurance eligibility across EMR/billing systems (Epic, Allscripts) ensuring 99.5% data integrity.</li>
+            <li><strong>Contributed to AI Quality Assurance</strong> by testing the Parachute AI bot and reporting document-split/missed-account issues to stabilize updates.</li>
+            <li><strong>Designed and implemented an exceptions tracking workflow</strong> (Sheets/Excel: VLOOKUP, Pivots) to reconcile bot vs source queues, reducing TAT by <strong>15%</strong>.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="relative pl-8 md:pl-16 border-l-2 border-[rgb(var(--bluebonnet-700))]/50">
+        <div class="absolute left-[-11px] md:left-[-15px] top-0 h-5 w-5 rounded-full bg-[rgb(var(--deep-blue-glow))] border-4 border-[#03080e] shadow-xl"></div>
+        <div class="rounded-2xl bg-slate-900/70 p-6 shadow-xl border border-slate-700/50 hover-glow">
+          <div class="flex flex-col sm:flex-row items-start justify-between gap-4">
+            <div>
+              <h3 class="font-bold text-slate-50 text-xl">AI/LLM Training & MLOps Pedagogy Specialist</h3>
+              <p class="text-[rgb(var(--bluebonnet-400))] text-lg">Online Instructor & Mentor — AI and Automation (Remote)</p>
+            </div>
+            <span class="text-sm text-slate-400">2023 – Present</span>
+          </div>
+          <ul class="mt-4 list-disc pl-5 text-slate-200 space-y-2 text-sm">
+            <li><strong>Developed and delivered curricula</strong> for live sessions & 1:1 mentorship on Generative AI, LLMs, HF Transformers, and n8n.</li>
+            <li><strong>Trained learners in MLOps practices</strong>: deploy fine-tuned models to HF Spaces; evaluation (Precision/Recall/F1); OAuth2 API auth.</li>
+            <li><strong>Created reusable ML artifacts</strong> (model cards, prompt templates, notebooks) and introduced SHAP/LIME for interpretability and structured error analysis.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="scroll-mt-24 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-[rgb(var(--bluebonnet-300))] border-b border-[rgb(var(--bluebonnet-400))]/50 pb-2">Key Projects</h2>
+
+    <div class="grid md:grid-cols-2 gap-8 mt-6">
+      <div class="rounded-2xl border-2 border-[rgb(var(--bluebonnet-700))]/50 bg-slate-900/70 p-6 shadow-2xl flex flex-col hover-glow">
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <h3 class="font-extrabold text-slate-50 text-xl">LLM-Powered Contextual RAG Chatbot (Private Docs)</h3>
+            <p class="text-sm text-slate-400 mt-1">Sep 2024</p>
+          </div>
+        </div>
+        <p class="mt-3 text-slate-200 flex-grow">RAG pipeline on private corpus with chunking, Sentence-Transformer embeddings and FAISS to ground LLM responses (Gemini/Llama).</p>
+        <div class="mt-4"><span class="pill">Python</span><span class="pill">LangChain/LlamaIndex</span><span class="pill">FAISS</span><span class="pill">Hugging Face</span><span class="pill">Streamlit</span></div>
+        <div class="mt-5 flex gap-4 border-t border-slate-700 pt-4">
+          <a class="inline-flex items-center gap-2 text-sm text-[rgb(var(--bluebonnet-300))] hover:text-indigo-100 transition" href="#" target="_blank" rel="noreferrer"><i data-lucide="github" class="h-4 w-4"></i> Code Repository</a>
+          <a class="inline-flex items-center gap-2 text-sm text-[rgb(var(--bluebonnet-300))] hover:text-indigo-100 transition" href="#" target="_blank" rel="noreferrer"><i data-lucide="external-link" class="h-4 w-4"></i> Live Demo</a>
+        </div>
+      </div>
+
+      <div class="rounded-2xl border-2 border-[rgb(var(--bluebonnet-700))]/50 bg-slate-900/70 p-6 shadow-2xl flex flex-col hover-glow">
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <h3 class="font-extrabold text-slate-50 text-xl">Phishing Attack Detection in Ethereum Smart Contracts</h3>
+            <p class="text-sm text-slate-400 mt-1">Feb 2024</p>
+          </div>
+        </div>
+        <p class="mt-3 text-slate-200 flex-grow">Graph-based ML pipeline (Random Walk + Skip-Gram) with supervised classifiers (scikit-learn, NetworkX) to flag malicious accounts.</p>
+        <div class="mt-4"><span class="pill">Python</span><span class="pill">Graph Embeddings</span><span class="pill">scikit-learn</span><span class="pill">NetworkX</span><span class="pill">Ethereum</span></div>
+      </div>
+
+      <div class="rounded-2xl border-2 border-[rgb(var(--bluebonnet-700))]/50 bg-slate-900/70 p-6 shadow-2xl flex flex-col hover-glow md:col-span-2">
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <h3 class="font-extrabold text-slate-50 text-xl">Stock Price Prediction using Linear Regression</h3>
+            <p class="text-sm text-slate-400 mt-1">Mar 2023</p>
+          </div>
+        </div>
+        <p class="mt-3 text-slate-200 flex-grow">Linear-regression forecaster with engineered time-series features (MA, lags, volume) in Python; evaluated with MAE.</p>
+        <div class="mt-4"><span class="pill">Python</span><span class="pill">Linear Regression</span><span class="pill">Pandas</span><span class="pill">NumPy</span><span class="pill">scikit-learn</span><span class="pill">Time Series</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION & CERTS -->
+  <section id="education" class="scroll-mt-24 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-[rgb(var(--bluebonnet-300))] border-b border-[rgb(var(--bluebonnet-400))]/50 pb-2">Education & Certifications</h2>
+
+    <div class="rounded-2xl border-2 border-[rgb(var(--bluebonnet-700))]/50 bg-slate-900/70 p-6 shadow-2xl flex flex-col hover-glow mt-6">
+      <h3 class="text-xl font-semibold text-slate-50 mb-4 flex items-center gap-2 border-b border-slate-700 pb-2">
+        <i data-lucide="graduation-cap" class="h-5 w-5 text-[rgb(var(--bluebonnet-400))]"></i> Academic Background
+      </h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="rounded-xl border border-slate-700 bg-slate-900/60 p-4 shadow-lg hover-glow">
+          <div class="flex items-center gap-3 mb-2 border-b border-slate-700/50 pb-2">
+            <i data-lucide="graduation-cap" class="h-5 w-5 text-[rgb(var(--bluebonnet-400))]"></i>
+            <div>
+              <h4 class="font-medium text-[rgb(var(--bluebonnet-300))] text-lg">B.Tech (Information Technology)</h4>
+              <p class="text-slate-200 text-sm">University College of Engineering Tindivanam, Anna University</p>
+            </div>
+            <p class="text-sm text-slate-500 ml-auto">2021</p>
+          </div>
+        </div>
+        <div class="rounded-xl border border-slate-700 bg-slate-900/60 p-4 shadow-lg hover-glow">
+          <div class="flex items-center gap-3 mb-2 border-b border-slate-700/50 pb-2">
+            <i data-lucide="graduation-cap" class="h-5 w-5 text-[rgb(var(--bluebonnet-400))]"></i>
+            <div>
+              <h4 class="font-medium text-[rgb(var(--bluebonnet-300))] text-lg">Higher Secondary</h4>
+              <p class="text-slate-200 text-sm">Gandhinagar Matriculation Hr Sec School (TN State Board)</p>
+            </div>
+            <p class="text-sm text-slate-500 ml-auto">2015</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rounded-2xl border-2 border-[rgb(var(--bluebonnet-700))]/50 bg-slate-900/70 p-6 shadow-2xl flex flex-col hover-glow mt-8">
+      <h3 class="text-xl font-semibold text-slate-50 mb-4 flex items-center gap-2 border-b border-slate-700 pb-2">
+        <i data-lucide="award" class="h-5 w-5 text-[rgb(var(--bluebonnet-400))]"></i> Certifications & Advanced Training
+      </h3>
+      <div class="grid grid-cols-1 gap-4">
+        <div class="rounded-xl border border-slate-700 bg-slate-900/60 p-4 shadow-lg hover-glow"><div class="flex items-center gap-3 mb-2 border-b border-slate-700/50 pb-2"><i data-lucide="award" class="h-5 w-5 text-[rgb(var(--bluebonnet-400))]"></i><h4 class="font-medium text-[rgb(var(--bluebonnet-300))] text-lg">Generative AI with Python: Build Apps in OpenAI & LangChain</h4></div><p class="text-slate-400 text-sm">Relevant skills: AI, LLM frameworks, MLOps practices.</p></div>
+        <div class="rounded-xl border border-slate-700 bg-slate-900/60 p-4 shadow-lg hover-glow"><div class="flex items-center gap-3 mb-2 border-b border-slate-700/50 pb-2"><i data-lucide="award" class="h-5 w-5 text-[rgb(var(--bluebonnet-400))]"></i><h4 class="font-medium text-[rgb(var(--bluebonnet-300))] text-lg">Fine-Tuning LLMs with Hugging Face Transformers (NLP) — 2025</h4></div><p class="text-slate-400 text-sm">Relevant skills: AI, LLM frameworks, MLOps practices.</p></div>
+        <div class="rounded-xl border border-slate-700 bg-slate-900/60 p-4 shadow-lg hover-glow"><div class="flex items-center gap-3 mb-2 border-b border-slate-700/50 pb-2"><i data-lucide="award" class="h-5 w-5 text-[rgb(var(--bluebonnet-400))]"></i><h4 class="font-medium text-[rgb(var(--bluebonnet-300))] text-lg">Introduction to Prompt Engineering for Generative AI</h4></div><p class="text-slate-400 text-sm">Relevant skills: AI, LLM frameworks, MLOps practices.</p></div>
+        <div class="rounded-xl border border-slate-700 bg-slate-900/60 p-4 shadow-lg hover-glow"><div class="flex items-center gap-3 mb-2 border-b border-slate-700/50 pb-2"><i data-lucide="award" class="h-5 w-5 text-[rgb(var(--bluebonnet-400))]"></i><h4 class="font-medium text-[rgb(var(--bluebonnet-300))] text-lg">Oracle Cloud Infrastructure Generative AI Professional</h4></div><p class="text-slate-400 text-sm">Relevant skills: AI, LLM frameworks, MLOps practices.</p></div>
+      </div>
+    </div>
+
+    <div class="rounded-2xl border-2 border-[rgb(var(--bluebonnet-700))]/50 bg-slate-900/70 p-6 shadow-2xl flex flex-col hover-glow mt-8">
+      <h3 class="text-xl font-semibold text-slate-50 mb-4 flex items-center gap-2 border-b border-slate-700 pb-2">
+        <i data-lucide="users" class="h-5 w-5 text-[rgb(var(--bluebonnet-400))]"></i> Internships & Leadership
+      </h3>
+      <div class="grid grid-cols-1 gap-6">
+        <div class="rounded-xl border border-slate-700 bg-slate-900/60 p-4 shadow-lg hover-glow">
+          <div class="flex items-center gap-3 mb-2 border-b border-slate-700/50 pb-2">
+            <i data-lucide="code" class="h-5 w-5 text-[rgb(var(--bluebonnet-400))]"></i>
+            <h4 class="font-medium text-[rgb(var(--bluebonnet-300))] text-lg">Internships & Training</h4>
+          </div>
+          <ul class="list-disc pl-5 text-slate-200 text-sm space-y-1">
+            <li>Ignite Club (SQL/Python analytics); Power BI/Excel dashboards; automated reporting.</li>
+            <li>IEEE (Advanced Python, Data Analysis).</li>
+          </ul>
+        </div>
+        <div class="rounded-xl border border-slate-700 bg-slate-900/60 p-4 shadow-lg hover-glow">
+          <div class="flex items-center gap-3 mb-2 border-b border-slate-700/50 pb-2">
+            <i data-lucide="shield" class="h-5 w-5 text-[rgb(var(--bluebonnet-400))]"></i>
+            <h4 class="font-medium text-[rgb(var(--bluebonnet-300))] text-lg">Achievements & Leadership</h4>
+          </div>
+          <ul class="list-disc pl-5 text-slate-200 text-sm space-y-1">
+            <li>Event Coordinator, DOT’Z v10.0 (200+ participants)</li>
+            <li>Industrial Visit Coordinator</li>
+            <li>Class Committee Representative</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="scroll-mt-24 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-[rgb(var(--bluebonnet-300))] border-b border-[rgb(var(--bluebonnet-400))]/50 pb-2">Get In Touch</h2>
+
+    <div class="rounded-2xl border border-[rgb(var(--bluebonnet-700))]/50 bg-slate-900/70 p-8 shadow-xl max-w-2xl mx-auto text-center hover-glow mt-6">
+      <p class="text-slate-200 mb-6 text-lg">I'm seeking roles focused on LLMOps and GenAI engineering. Let’s connect.</p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="mailto:abi.tvm02@gmail.com"
+           class="inline-flex items-center gap-2 rounded-xl bg-indigo-700 text-white px-5 py-3 text-base font-semibold shadow-xl shadow-[rgb(var(--deep-blue-glow))]/40 hover:bg-indigo-800 transition w-full sm:w-auto justify-center">
+          <i data-lucide="mail" class="h-5 w-5"></i> Email Me
+        </a>
+        <a href="https://linkedin.com/in/elumalaiabishek" target="_blank" rel="noreferrer"
+           class="inline-flex items-center gap-2 rounded-xl border border-slate-600 text-[rgb(var(--bluebonnet-300))] px-5 py-3 text-base hover:bg-slate-800 hover:border-[rgb(var(--bluebonnet-400))] transition w-full sm:w-auto justify-center">
+          <i data-lucide="linkedin" class="h-5 w-5"></i> LinkedIn Profile
+        </a>
+      </div>
+      <p class="text-sm text-slate-500 mt-4">
+        <i data-lucide="phone" class="h-4 w-4 inline mr-2"></i> +91 70946 07869
+        <span class="mx-2">|</span>
+        <i data-lucide="map-pin" class="h-4 w-4 inline mr-2"></i> Tamil Nadu, India
+      </p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-12 text-center text-sm text-slate-500 border-t border-slate-800 mt-12">
+    <p>© <span id="year"></span> ABISHEK ELUMALAI. Designed with a focus on AI/LLM expertise.</p>
+  </footer>
+
+  <script>
+    // Mobile menu
+    const menuBtn = document.getElementById('menuBtn');
+    const menuOverlay = document.getElementById('menuOverlay');
+    const menuPanel = document.getElementById('menuPanel');
+    const toggleMenu = () => {
+      const open = menuOverlay.classList.contains('opacity-100');
+      if (open) {
+        menuOverlay.classList.remove('opacity-100');
+        menuOverlay.classList.add('opacity-0','pointer-events-none');
+        menuPanel.classList.add('translate-x-full');
+      } else {
+        menuOverlay.classList.remove('opacity-0','pointer-events-none');
+        menuOverlay.classList.add('opacity-100');
+        menuPanel.classList.remove('translate-x-full');
+      }
+    };
+    menuBtn.addEventListener('click', toggleMenu);
+    menuOverlay.addEventListener('click', toggleMenu);
+
+    // Render Lucide icons
+    lucide.createIcons();
+
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
